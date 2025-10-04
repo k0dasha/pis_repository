@@ -1,0 +1,7 @@
+C:\Users\Даша\source\repos\PIS2\PIS2\bin\Debug\PIS2.exe.config
+C:\Users\Даша\source\repos\PIS2\PIS2\bin\Debug\PIS2.exe
+C:\Users\Даша\source\repos\PIS2\PIS2\bin\Debug\PIS2.pdb
+C:\Users\Даша\source\repos\PIS2\PIS2\obj\Debug\PIS2.csproj.AssemblyReference.cache
+C:\Users\Даша\source\repos\PIS2\PIS2\obj\Debug\PIS2.csproj.CoreCompileInputs.cache
+C:\Users\Даша\source\repos\PIS2\PIS2\obj\Debug\PIS2.exe
+C:\Users\Даша\source\repos\PIS2\PIS2\obj\Debug\PIS2.pdb

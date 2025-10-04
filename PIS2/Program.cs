@@ -13,7 +13,7 @@ namespace PIS2
         public string Name { get; set; }
         public string Theme { get; set; }
         public DateTime Date { get; set; }
-        public void ParseString(string input)
+        public Student(string input)
         {
             var parts = input.Split('"');
 
@@ -28,8 +28,7 @@ namespace PIS2
         {
             string data = "Студент \"Кузьмин Д.\" Тема \"Логарифмы\" дата 2025.09.09";
 
-            Student st = new Student();
-            st.ParseString(data);
+            Student st = new Student(data);
 
             Console.WriteLine(st.Name);
             Console.WriteLine(st.Theme);
