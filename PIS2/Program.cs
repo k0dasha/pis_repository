@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PIS2
 {
-    public class Student
+    public abstract class Student
     {
         public string Name { get; set; }
         public string Theme { get; set; }
@@ -52,28 +53,42 @@ namespace PIS2
     {
         static void Main(string[] args)
         {
-            string data = "Студент \"Кузьмин Д.\" Тема \"Логарифмы\" дата 2025.09.09";
-            string data_1 = "Студент \"Воскресенская Л.\" Тема \"Интерфейсы\" дата 2025.10.30";
-            string data_2 = "Студент \"Афанасьев М.\" Тема \"Совместные события\" срок \"2\" дата 2025.01.01";
+            var students = LoadStudents("input.txt");
 
-            Student st = new Student(data);
+            foreach (var student in students)
+            {
+                string info = ($"{student.Name}, {student.Theme}, {student.Date.ToString("yyyy.MM.dd")}");
+                if (student is Bachelor b)
+                {
+                    Console.WriteLine(info + $" {b.EducationPeriod}");
+                }
+                else if (student is Master m)
+                {
+                    Console.WriteLine(info + $" {m.InternshipPlace}");
+                }
+            }
+        }
+        static List<Student> LoadStudents(string filePath)
+        {
+            var result = new List<Student>();
 
-            Console.WriteLine(st.Name);
-            Console.WriteLine(st.Theme);
-            Console.WriteLine(st.Date.ToString("yyyy.MM.dd"));
-            Console.WriteLine();
+            foreach (var line in File.ReadLines(filePath))
+            {
+                var parts = line.Split(new char[] { ' ' });
 
-            Master stu = new Master(data_1);
-            Console.WriteLine(stu.Name);
-            Console.WriteLine(stu.Theme);
-            Console.WriteLine(stu.Date.ToString("yyyy.MM.dd"));
-            Console.WriteLine(stu.InternshipPlace);
-            Console.WriteLine();
-
-            Bachelor stud = new Bachelor(data_2);
-            Console.WriteLine(stud.Name);
-            Console.WriteLine(stud.Theme);
-            Console.WriteLine(stud.Date.ToString("yyyy.MM.dd"));
+                if (parts.Length > 3)
+                {
+                    if ((parts[5] as string) == null)
+                    {
+                        result.Add(new Bachelor(line));
+                    }
+                    else
+                    {
+                        result.Add(new Master(line));
+                    }
+                }
+            }
+            return result;
         }
     }
 }
