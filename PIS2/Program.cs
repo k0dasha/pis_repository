@@ -54,8 +54,11 @@ namespace PIS2
         static void Main(string[] args)
         {
             var students = LoadStudents("input.txt");
-
-            foreach (var student in students)
+            PrintInfo(students);
+        }
+        static void PrintInfo(List<Student> students1)
+        {
+            foreach (var student in students1)
             {
                 string info = ($"{student.Name}, {student.Theme}, {student.Date.ToString("yyyy.MM.dd")}");
                 if (student is Bachelor b)
