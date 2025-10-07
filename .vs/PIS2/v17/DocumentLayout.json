@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\PIS2\\",
+  "WorkspaceRootPath": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\pis_repository\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11561669-4267-4479-9543-AF83BE1AD1E3}|PIS2\\PIS2.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\pis2\\pis2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{11561669-4267-4479-9543-AF83BE1AD1E3}|PIS2\\PIS2.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\pis_repository\\pis2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11561669-4267-4479-9543-AF83BE1AD1E3}|PIS2\\PIS2.csproj|solutionrelative:pis2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\PIS2\\PIS2\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\pis_repository\\PIS2\\Program.cs",
               "RelativeDocumentMoniker": "PIS2\\Program.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\PIS2\\PIS2\\Program.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\pis_repository\\PIS2\\Program.cs",
               "RelativeToolTip": "PIS2\\Program.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAQwDwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAIwDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T13:19:51.942Z",
               "EditorCaption": ""
