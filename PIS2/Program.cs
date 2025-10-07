@@ -15,12 +15,14 @@ namespace PIS2
         public string Name { get; set; }
         public string Theme { get; set; }
         public DateTime Date { get; set; }
+        public string Interest { get; set; }
         public virtual void ParseString(string input)
         {
             var parts = input.Split('"');
 
             Name = parts[1];
             Theme = parts[3];
+            Interest = parts[5];
             Date = DateTime.Parse(parts[parts.Length - 1].Replace("дата", ""));
         }
         public Student(string input)
@@ -36,11 +38,12 @@ namespace PIS2
             var parts = input.Split('"');
             Name = parts[1];
             Theme = parts[3];
+            Interest = parts[5];
             Date = DateTime.Parse(parts[parts.Length - 1].Replace("дата", ""));
 
-            if (parts.Length >= 6)
+            if (parts.Length >= 9)
             {
-                var periodStr = parts[5].Replace("срок", "");
+                var periodStr = parts[7].Replace("срок", "");
                 EducationPeriod = int.Parse(periodStr);
             }
         }
@@ -57,11 +60,12 @@ namespace PIS2
             var parts = input.Split('"');
             Name = parts[1];
             Theme = parts[3];
+            Interest = parts[5];
             Date = DateTime.Parse(parts[parts.Length - 1].Replace("дата", ""));
 
-            if (parts.Length >= 6)
+            if (parts.Length >= 9)
             {
-                InternshipPlace = parts[5];
+                InternshipPlace = parts[7];
             }
         }
         public Master(string input) : base(input)
@@ -85,7 +89,7 @@ namespace PIS2
         }
         static void PrintStudent(Student student)
         {
-            string info = $"{student.Name}, {student.Theme}, {student.Date:yyyy.MM.dd}";
+            string info = $"{student.Name}, {student.Theme}, {student.Interest}, {student.Date:yyyy.MM.dd}";
 
             if (student is Bachelor b)
                 Console.WriteLine($"{info}, {b.EducationPeriod}");
@@ -106,25 +110,19 @@ namespace PIS2
         }
         static Student ParseStudent(string line)
         {
-            foreach (var i in line)
-            {
-                var parts = line.Split(new char[] { ' ' });
+            var parts = line.Split(new char[] { ' ' });
 
-                if (parts.Length > 3)
-                {
-                    if ((parts[5] as string) == null)
-                    {
-                        return (new Bachelor(line));
-                    }
-                    else
-                    {
-                        return (new Master(line));
-                    }
-                }
+            if ((parts[7] as string) == null)
+            {
+                return (new Bachelor(line));
             }
-            return null;
+            else
+            {
+                return (new Master(line));
+            }
         }
     }
 }
+
 
 
