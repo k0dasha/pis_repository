@@ -69,6 +69,21 @@ namespace PIS2
             ParseString(input);
         }
     }
+    public class Postgraduate : Student
+    {
+        public override void ParseString(string input)
+        {
+            var parts = input.Split('"');
+            Name = parts[1];
+            Theme = parts[3];
+            Date = DateTime.Parse(parts[parts.Length - 1].Replace("дата", ""));
+        }
+        public Postgraduate(string input) : base(input)
+        {
+            ParseString(input);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -91,6 +106,8 @@ namespace PIS2
                 Console.WriteLine($"{info}, {b.EducationPeriod}");
             else if (student is Master m)
                 Console.WriteLine($"{info}, {m.InternshipPlace}");
+            else
+                Console.WriteLine($"{info}");
         }
         static List<Student> LoadStudents(string filePath)
         {
@@ -106,25 +123,26 @@ namespace PIS2
         }
         static Student ParseStudent(string line)
         {
-            foreach (var i in line)
-            {
-                var parts = line.Split(new char[] { ' ' });
+            var parts = line.Split(new char[] { ' ' });
 
-                if (parts.Length > 3)
+            if (parts.Length <= 7)
+            {
+                return (new Postgraduate(line));
+            }
+            else
+            {
+                if ((parts[6] as string) == null)
                 {
-                    if ((parts[5] as string) == null)
-                    {
-                        return (new Bachelor(line));
-                    }
-                    else
-                    {
-                        return (new Master(line));
-                    }
+                    return (new Bachelor(line));
+                }
+                else
+                {
+                    return (new Master(line));
                 }
             }
-            return null;
-        }
+        }   
     }
 }
+
 
 
