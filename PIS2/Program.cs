@@ -92,7 +92,7 @@ namespace PIS2
     {
         static void Main(string[] args)
         {
-            var students = LoadStudents("input.txt");
+            var students = LoadStudents(@"C:\Users\Даша\source\repos\pis_repository\PIS2\input.txt");
             PrintInfo(students);
         }
         static void PrintInfo(List<Student> studentsList)
