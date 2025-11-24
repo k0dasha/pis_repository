@@ -35,6 +35,16 @@ namespace UnitTests
             Assert.AreEqual(" дата 2025.01.01", result[4]);
         }
         [TestMethod]
+        public void ReturnCorrectArray_()
+        {
+            string input = "Студент \"Иванов В.\" Тема \"Типы моделей\" дата 2025.01.01";
+            Student result = StudentParser.ParsePostgraduate(input);
+
+            Assert.AreEqual("Иванов В.", result.Name);
+            Assert.AreEqual("Типы моделей", result.Theme);
+            //Assert.AreEqual("2025.01.01", result.Date);
+        }
+        [TestMethod]
         public void ContainsIndividialProperties()
         {
             string input = "Студент \"Зайцева Д.\" Тема \"Инкапсуляция\" Интерес \"Баскетбол\" Стажировка \"Тинькофф\" Срок \"2\" дата 2025.08.08";

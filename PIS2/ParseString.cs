@@ -20,7 +20,7 @@ namespace PIS2
 
             string name = parts[1];
             string theme = parts[3];
-            DateTime date = DateTime.Parse(parts[parts.Length - 1].Replace("дата", ""));
+            DateTime date = DateTime.Parse(parts[parts.Length - 1].Trim().Replace("дата", ""));
 
             return (name, theme, date);
         }
