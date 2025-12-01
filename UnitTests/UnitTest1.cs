@@ -35,14 +35,15 @@ namespace UnitTests
             Assert.AreEqual(" дата 2025.01.01", result[4]);
         }
         [TestMethod]
-        public void ReturnCorrectArray_()
+        public void ReturnCorrectPostgraduate_()
         {
             string input = "Студент \"Иванов В.\" Тема \"Типы моделей\" дата 2025.01.01";
             Student result = StudentParser.ParsePostgraduate(input);
+            DateTime d = DateTime.Parse("01.01.2025 0:00:00");
 
             Assert.AreEqual("Иванов В.", result.Name);
             Assert.AreEqual("Типы моделей", result.Theme);
-            //Assert.AreEqual("2025.01.01", result.Date);
+            Assert.AreEqual(d, result.Date);
         }
         [TestMethod]
         public void ContainsIndividialProperties()
@@ -58,5 +59,45 @@ namespace UnitTests
             Student result = StudentParser.ParseMaster(input);
             Assert.IsNull(result);
         }
+        [TestMethod]
+        public void ReturnCorrectBachelor()
+        {
+            string input = "Студент \"Зайцева Д.\" Тема \"Инкапсуляция\" Интерес \"Баскетбол\" Срок \"2\" дата 2025.08.08";
+            Student result = StudentParser.ParseBachelor(input);
+            DateTime d = DateTime.Parse("08.08.2025 0:00:00");
+            Assert.AreEqual("Зайцева Д.", result.Name);
+            Assert.AreEqual("Инкапсуляция", result.Theme);
+            Assert.AreEqual(d, result.Date);
+            Assert.AreEqual("Баскетбол", result.Interest);
+
+        }
+        [TestMethod]
+        public void TestReturnCorrectArray()
+        {
+            int[] array = { 1, 2, 0, 7, 8, 4 };
+            var result = StudentParser.SumEvenNumbers(3, 5, array);
+            int expected_result = 12;
+            Assert.AreEqual(expected_result, result, "Not working correctly");
+        }
+        [TestMethod]
+        public void TestWithoutEvenNumbers()
+        {
+            int[] array = {1, 3, 5, 8, 3, 11, 11, 11};
+            var result = StudentParser.SumEvenNumbers(3, 5, array);
+            int expected_result = 0;
+            Assert.AreEqual(expected_result, result, "Not working correctly");
+        }
+        [TestMethod]
+        public void TestWithoutNumbers()
+        {
+            int[] array = { };
+            var result = StudentParser.SumEvenNumbers(3, 5, array);
+            int expected_result = 0;
+            Assert.AreEqual(expected_result, result, "Not working correctly");
+        }
+
+
+
     }
-}
+    }
+

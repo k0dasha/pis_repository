@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,8 @@ namespace PIS2
 
             string name = parts[1];
             string theme = parts[3];
-            DateTime date = DateTime.Parse(parts[parts.Length - 1].Trim().Replace("дата", ""));
+            string strDate = parts[parts.Length - 1].Trim().Replace("дата", "");
+            DateTime date = DateTime.Parse(strDate);
 
             return (name, theme, date);
         }
@@ -101,6 +103,28 @@ namespace PIS2
                 Console.WriteLine($"Ошибка парсинга магистра: {ex.Message}");
                 return null;
             }
+        }
+        public static int SumEvenNumbers(int to, int from, int[] ar)
+        {
+
+            int sum = 0;
+            
+            for (int i = ar[from]; i <= ar[to]; i++)
+            {
+                if (ar[i] % 2 == 0)
+                {
+                    sum += ar[i];
+                    
+                }
+            }
+            return sum;
+            
+
+
+            //int sum_section = section.Where(n => n % 2 == 0).Sum();
+            //int sum = ar.Where(n => n % 2 == 0).Sum();
+            //return sum_section;
+
         }
     }
 }

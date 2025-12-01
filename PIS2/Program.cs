@@ -18,6 +18,7 @@ namespace PIS2
             {
                 var students = Distribution.LoadStudents(@"C:\Users\Даша\source\repos\pis_repository\input.txt");
                 ShowInformation.PrintInfo(students);
+                int[] e = { 1, 2, 0, 7, 8, 4 };
             }
             catch (Exception ex)
             {
@@ -25,6 +26,7 @@ namespace PIS2
                 Console.WriteLine(ex);
             }
         }
+        
     }
 }
 
